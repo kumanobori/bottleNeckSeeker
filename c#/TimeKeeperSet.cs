@@ -8,7 +8,7 @@ namespace TimeKeeperSet {
     /// <summary>
     /// 時間計測用クラスをまとめて扱うクラス
     /// </summary>
-    class TimeKeeperManager {
+    public class TimeKeeperManager {
         string title;
         private SortedDictionary<double, TimeKeeper> timeKeepers = new SortedDictionary<double, TimeKeeper>();
 
@@ -64,8 +64,8 @@ namespace TimeKeeperSet {
             StringBuilder sb = new StringBuilder();
             sb.Append("------------------------------------\n");
             sb.Append(string.Format("Timekeepers {0} report\n", title));
-            foreach(var(key, val) in timeKeepers) {
-                sb.Append(key + ": " + val.report() + "\n");
+            foreach(KeyValuePair<double, TimeKeeper> kvp in timeKeepers) {
+                sb.Append(kvp.Key + ": " + kvp.Value.report() + "\n");
             }
             return sb.ToString();
         }
@@ -77,11 +77,11 @@ namespace TimeKeeperSet {
             /// <summary>
             /// このインスタンスの表題
             /// </summary>
-            public String title {get;} = "";
+            public String title {get;set;}
             /// <summary>
             /// 表題が変えられた場合にtrueとなるフラグ
             /// </summary>
-            public bool isTitleChanged {get;set;} = false;
+            public bool isTitleChanged {get;set;}
 
             /// <summary>
             /// startした回数
@@ -101,6 +101,7 @@ namespace TimeKeeperSet {
             /// <param name="title">インスタンスにつける表題</param>
             public TimeKeeper (String title) {
                 this.title = title;
+                this.isTitleChanged = false;
             }
             /// <summary>
             /// 表題なしでインスタンスを生成する
