@@ -2,7 +2,7 @@
 
 /**
  * ストップウォッチクラス
- * @author jiro
+ * @author kumanobori
  */
 class StopWatch {
 
@@ -59,7 +59,7 @@ class StopWatch {
 
 /**
  * 時間計測用クラス
- * @author jiro
+ * @author kumanobori
  */
 class TimeKeeper {
 
@@ -141,7 +141,7 @@ class TimeKeeper {
 
 /**
  * 時間計測用クラスをまとめて扱うクラス
- * @author jiro
+ * @author kumanobori
  */
 class TimeKeeperManager {
     public $title;
